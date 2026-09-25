@@ -28,9 +28,6 @@
   "timeSlots": "Time Slots",
   "@timeSlots": { "description": "Label above the time-slot grid." },
 
-  "selectStartTimeHint": "Tap an available slot to choose a start time.",
-  "@selectStartTimeHint": { "description": "Hint text shown below the time slots label." },
-
   "legend": "Legend",
   "@legend": { "description": "Label above the slot legend row." },
 
@@ -70,17 +67,53 @@
   "bookingSuccessful": "Your appointment has been booked successfully!",
   "@bookingSuccessful": { "description": "Success message shown after a booking is confirmed." },
 
-  "errorExceedsWorkingHours": "Booking cannot extend past 6:00 PM.",
+  "selectStartTimeHint": "Tap a slot to choose a start time. Outlined slots cannot start a booking of this length.",
+  "@selectStartTimeHint": { "description": "Hint text shown below the time slots label." },
+
+  "invalid": "Invalid",
+  "@invalid": { "description": "Legend item and slot status label for a selection that breaks a booking rule." },
+
+  "cannotStartHere": "Can't start here",
+  "@cannotStartHere": { "description": "Legend item and slot status label for a free slot that cannot start a booking of the selected duration." },
+
+  "slotSemantics": "{time}, {status}",
+  "@slotSemantics": {
+    "description": "Screen-reader label for a slot: its time followed by its status.",
+    "placeholders": { "time": { "type": "String" }, "status": { "type": "String" } }
+  },
+
+  "totalLabel": "Total",
+  "@totalLabel": { "description": "Label for the total length of the booking in the summary." },
+
+  "durationHours": "{count} hr",
+  "@durationHours": {
+    "description": "Hours part of a duration, e.g. '1 hr'.",
+    "placeholders": { "count": { "type": "int" } }
+  },
+
+  "durationMinutes": "{count} min",
+  "@durationMinutes": {
+    "description": "Minutes part of a duration, e.g. '30 min'.",
+    "placeholders": { "count": { "type": "int" } }
+  },
+
+  "errorExceedsWorkingHours": "The selected duration extends beyond 6:00 PM.",
   "@errorExceedsWorkingHours": { "description": "Validation error when booking exceeds working hours." },
 
-  "errorContainsBookedSlot": "One or more required time slots are already booked.",
-  "@errorContainsBookedSlot": { "description": "Validation error when required slots overlap an existing booking." },
+  "errorStartSlotBooked": "This time slot is already booked.",
+  "@errorStartSlotBooked": { "description": "Validation error when the chosen start slot is already booked." },
 
-  "errorContainsUnavailableSlot": "One or more required time slots are unavailable.",
-  "@errorContainsUnavailableSlot": { "description": "Validation error when required slots are marked unavailable." },
+  "errorStartSlotUnavailable": "This time slot is unavailable.",
+  "@errorStartSlotUnavailable": { "description": "Validation error when the chosen start slot is unavailable." },
 
-  "errorCreatesInvalidGap": "This booking would leave an isolated 30-minute gap in the schedule.",
-  "@errorCreatesInvalidGap": { "description": "Validation error when the booking creates a forbidden isolated gap." },
+  "errorOverlapsBooking": "This time overlaps with a booked appointment.",
+  "@errorOverlapsBooking": { "description": "Validation error when the requested range runs into a booked slot." },
+
+  "errorInsufficientConsecutiveSlots": "The selected time does not contain enough consecutive available slots.",
+  "@errorInsufficientConsecutiveSlots": { "description": "Validation error when the range cannot be covered by consecutive available slots." },
+
+  "errorCreatesIsolatedGap": "This booking would leave an unusable 30-minute gap.",
+  "@errorCreatesIsolatedGap": { "description": "Validation error when the booking would strand a single free 30-minute slot between two blocked slots." },
 
   "theme": "Theme",
   "@theme": { "description": "Label for theme setting option." },

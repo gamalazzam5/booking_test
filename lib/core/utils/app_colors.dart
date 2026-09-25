@@ -40,9 +40,11 @@ abstract class AppColors {
   static const Color slotBookedBg = Color(0xFFFFE4E6);
   static const Color slotBookedFg = Color(0xFF9F1239);
   static const Color slotUnavailableBg = Color(0xFFF1F5F9);
-  static const Color slotUnavailableFg = Color(0xFF94A3B8);
+  static const Color slotUnavailableFg = Color(0xFF5B6B80);
   static const Color slotSelectedBg = Color(0xFF4763E4);
   static const Color slotSelectedFg = Color(0xFFFFFFFF);
+  static const Color slotInvalidBg = Color(0xFFFFEDD5);
+  static const Color slotInvalidFg = Color(0xFF9A3412);
 
   //! ===== Slot Status Colors — Dark Theme =====
   static const Color slotAvailableBgDark = Color(0xFF052E16);
@@ -50,7 +52,9 @@ abstract class AppColors {
   static const Color slotBookedBgDark = Color(0xFF4C0519);
   static const Color slotBookedFgDark = Color(0xFFFCA5A5);
   static const Color slotUnavailableBgDark = Color(0xFF1E2130);
-  static const Color slotUnavailableFgDark = Color(0xFF64748B);
+  static const Color slotUnavailableFgDark = Color(0xFF94A3B8);
   static const Color slotSelectedBgDark = Color(0xFF4763E4);
   static const Color slotSelectedFgDark = Color(0xFFFFFFFF);
+  static const Color slotInvalidBgDark = Color(0xFF431407);
+  static const Color slotInvalidFgDark = Color(0xFFFDBA74);
 }

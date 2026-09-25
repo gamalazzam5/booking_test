@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:booking_appointments/core/routing/app_routes.dart';
-import 'package:booking_appointments/features/booking/presentation/views/booking_view.dart';
+import 'package:booking_appointments/presentation/views/booking_view.dart';
 
 ///* AppRouter — centralized GoRouter configuration.
 ///* All screen transitions use FadeTransition via _buildTransitionPage.

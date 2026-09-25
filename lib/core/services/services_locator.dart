@@ -3,7 +3,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:booking_appointments/core/cache/shared_preferences_helper.dart';
 import 'package:booking_appointments/core/cache/shared_preferences_service.dart';
 import 'package:booking_appointments/core/services/settings_cubit.dart';
-import 'package:booking_appointments/features/booking/presentation/manager/booking_cubit.dart';
+import 'package:booking_appointments/data/repositories/booking_repository.dart';
+import 'package:booking_appointments/data/repositories/booking_repository_impl.dart';
+import 'package:booking_appointments/domain/services/booking_validator.dart';
+import 'package:booking_appointments/presentation/cubit/booking_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -27,7 +30,11 @@ Future<void> setupServiceLocator() async {
     () => SettingsCubit(getIt()),
   );
 
-  //! ========= Features =========
-  getIt.registerFactory<BookingCubit>(BookingCubit.new);
+  //! ========= Booking =========
+  getIt.registerLazySingleton<BookingRepository>(BookingRepositoryImpl.new);
+  getIt.registerLazySingleton<BookingValidator>(BookingValidator.new);
+  getIt.registerFactory<BookingCubit>(
+    () => BookingCubit(repository: getIt(), validator: getIt()),
+  );
 }
 

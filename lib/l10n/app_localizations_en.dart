@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -35,10 +34,6 @@ class SEn extends S {
 
   @override
   String get timeSlots => 'Time Slots';
-
-  @override
-  String get selectStartTimeHint =>
-      'Tap an available slot to choose a start time.';
 
   @override
   String get legend => 'Legend';
@@ -81,19 +76,54 @@ class SEn extends S {
       'Your appointment has been booked successfully!';
 
   @override
-  String get errorExceedsWorkingHours => 'Booking cannot extend past 6:00 PM.';
+  String get selectStartTimeHint =>
+      'Tap a slot to choose a start time. Outlined slots cannot start a booking of this length.';
 
   @override
-  String get errorContainsBookedSlot =>
-      'One or more required time slots are already booked.';
+  String get invalid => 'Invalid';
 
   @override
-  String get errorContainsUnavailableSlot =>
-      'One or more required time slots are unavailable.';
+  String get cannotStartHere => 'Can\'t start here';
 
   @override
-  String get errorCreatesInvalidGap =>
-      'This booking would leave an isolated 30-minute gap in the schedule.';
+  String slotSemantics(String time, String status) {
+    return '$time, $status';
+  }
+
+  @override
+  String get totalLabel => 'Total';
+
+  @override
+  String durationHours(int count) {
+    return '$count hr';
+  }
+
+  @override
+  String durationMinutes(int count) {
+    return '$count min';
+  }
+
+  @override
+  String get errorExceedsWorkingHours =>
+      'The selected duration extends beyond 6:00 PM.';
+
+  @override
+  String get errorStartSlotBooked => 'This time slot is already booked.';
+
+  @override
+  String get errorStartSlotUnavailable => 'This time slot is unavailable.';
+
+  @override
+  String get errorOverlapsBooking =>
+      'This time overlaps with a booked appointment.';
+
+  @override
+  String get errorInsufficientConsecutiveSlots =>
+      'The selected time does not contain enough consecutive available slots.';
+
+  @override
+  String get errorCreatesIsolatedGap =>
+      'This booking would leave an unusable 30-minute gap.';
 
   @override
   String get theme => 'Theme';

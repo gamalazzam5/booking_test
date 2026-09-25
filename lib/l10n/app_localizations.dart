@@ -151,12 +151,6 @@ abstract class S {
   /// **'Time Slots'**
   String get timeSlots;
 
-  /// Hint text shown below the time slots label.
-  ///
-  /// In en, this message translates to:
-  /// **'Tap an available slot to choose a start time.'**
-  String get selectStartTimeHint;
-
   /// Label above the slot legend row.
   ///
   /// In en, this message translates to:
@@ -235,29 +229,83 @@ abstract class S {
   /// **'Your appointment has been booked successfully!'**
   String get bookingSuccessful;
 
+  /// Hint text shown below the time slots label.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a slot to choose a start time. Outlined slots cannot start a booking of this length.'**
+  String get selectStartTimeHint;
+
+  /// Legend item and slot status label for a selection that breaks a booking rule.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid'**
+  String get invalid;
+
+  /// Legend item and slot status label for a free slot that cannot start a booking of the selected duration.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t start here'**
+  String get cannotStartHere;
+
+  /// Screen-reader label for a slot: its time followed by its status.
+  ///
+  /// In en, this message translates to:
+  /// **'{time}, {status}'**
+  String slotSemantics(String time, String status);
+
+  /// Label for the total length of the booking in the summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get totalLabel;
+
+  /// Hours part of a duration, e.g. '1 hr'.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hr'**
+  String durationHours(int count);
+
+  /// Minutes part of a duration, e.g. '30 min'.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min'**
+  String durationMinutes(int count);
+
   /// Validation error when booking exceeds working hours.
   ///
   /// In en, this message translates to:
-  /// **'Booking cannot extend past 6:00 PM.'**
+  /// **'The selected duration extends beyond 6:00 PM.'**
   String get errorExceedsWorkingHours;
 
-  /// Validation error when required slots overlap an existing booking.
+  /// Validation error when the chosen start slot is already booked.
   ///
   /// In en, this message translates to:
-  /// **'One or more required time slots are already booked.'**
-  String get errorContainsBookedSlot;
+  /// **'This time slot is already booked.'**
+  String get errorStartSlotBooked;
 
-  /// Validation error when required slots are marked unavailable.
+  /// Validation error when the chosen start slot is unavailable.
   ///
   /// In en, this message translates to:
-  /// **'One or more required time slots are unavailable.'**
-  String get errorContainsUnavailableSlot;
+  /// **'This time slot is unavailable.'**
+  String get errorStartSlotUnavailable;
 
-  /// Validation error when the booking creates a forbidden isolated gap.
+  /// Validation error when the requested range runs into a booked slot.
   ///
   /// In en, this message translates to:
-  /// **'This booking would leave an isolated 30-minute gap in the schedule.'**
-  String get errorCreatesInvalidGap;
+  /// **'This time overlaps with a booked appointment.'**
+  String get errorOverlapsBooking;
+
+  /// Validation error when the range cannot be covered by consecutive available slots.
+  ///
+  /// In en, this message translates to:
+  /// **'The selected time does not contain enough consecutive available slots.'**
+  String get errorInsufficientConsecutiveSlots;
+
+  /// Validation error when the booking would strand a single free 30-minute slot between two blocked slots.
+  ///
+  /// In en, this message translates to:
+  /// **'This booking would leave an unusable 30-minute gap.'**
+  String get errorCreatesIsolatedGap;
 
   /// Label for theme setting option.
   ///

@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -35,9 +34,6 @@ class SAr extends S {
 
   @override
   String get timeSlots => 'الفترات الزمنية';
-
-  @override
-  String get selectStartTimeHint => 'اضغط على فترة متاحة لاختيار وقت البدء.';
 
   @override
   String get legend => 'الدليل';
@@ -79,20 +75,53 @@ class SAr extends S {
   String get bookingSuccessful => 'تم حجز موعدك بنجاح!';
 
   @override
+  String get selectStartTimeHint =>
+      'اضغط على فترة لاختيار وقت البدء. الفترات ذات الإطار فقط لا يمكن بدء حجز بهذه المدة منها.';
+
+  @override
+  String get invalid => 'غير صالح';
+
+  @override
+  String get cannotStartHere => 'لا يمكن البدء هنا';
+
+  @override
+  String slotSemantics(String time, String status) {
+    return '$time، $status';
+  }
+
+  @override
+  String get totalLabel => 'الإجمالي';
+
+  @override
+  String durationHours(int count) {
+    return '$count ساعة';
+  }
+
+  @override
+  String durationMinutes(int count) {
+    return '$count دقيقة';
+  }
+
+  @override
   String get errorExceedsWorkingHours =>
-      'لا يمكن للحجز أن يتجاوز الساعة 6:00 مساءً.';
+      'المدة المحددة تتجاوز الساعة 6:00 مساءً.';
 
   @override
-  String get errorContainsBookedSlot =>
-      'بعض الفترات الزمنية المطلوبة محجوزة بالفعل.';
+  String get errorStartSlotBooked => 'هذه الفترة محجوزة بالفعل.';
 
   @override
-  String get errorContainsUnavailableSlot =>
-      'بعض الفترات الزمنية المطلوبة غير متاحة.';
+  String get errorStartSlotUnavailable => 'هذه الفترة غير متاحة.';
 
   @override
-  String get errorCreatesInvalidGap =>
-      'هذا الحجز سيترك فترة 30 دقيقة معزولة في الجدول.';
+  String get errorOverlapsBooking => 'هذا الوقت يتداخل مع موعد محجوز.';
+
+  @override
+  String get errorInsufficientConsecutiveSlots =>
+      'الوقت المحدد لا يحتوي على فترات متاحة متتالية كافية.';
+
+  @override
+  String get errorCreatesIsolatedGap =>
+      'هذا الحجز سيترك فترة 30 دقيقة غير قابلة للاستخدام.';
 
   @override
   String get theme => 'المظهر';
